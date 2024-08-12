@@ -103,4 +103,15 @@ public class CalculatorTests
     }
     /*TESTES DIRECIONADOS A DADOS*/
 
+    [DataTestMethod]
+    [DataRow(1, 1, 2)]
+    [DataRow(2, 2, 4)]
+    [DataRow(3, 3, 6)]
+    [DataRow(0, 0, 1)] // The test run with this row fails
+    public void AddDataTests(int x, int y, int expected)
+    {
+        var calculator = new Calculator();
+        var actual = calculator.Add(x, y);
+        Assert.AreEqual(expected, actual);
+    }
 }
