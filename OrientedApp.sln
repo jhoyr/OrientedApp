@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrientedApp", "OrientedApp\OrientedApp.csproj", "{72471233-F89A-4B9B-85D2-19D02CCD0F9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrientedAppTests", "OrientedAppTests\OrientedAppTests.csproj", "{2502813E-5376-4B77-A8B9-BD9779476730}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72471233-F89A-4B9B-85D2-19D02CCD0F9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72471233-F89A-4B9B-85D2-19D02CCD0F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72471233-F89A-4B9B-85D2-19D02CCD0F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72471233-F89A-4B9B-85D2-19D02CCD0F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2502813E-5376-4B77-A8B9-BD9779476730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2502813E-5376-4B77-A8B9-BD9779476730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2502813E-5376-4B77-A8B9-BD9779476730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2502813E-5376-4B77-A8B9-BD9779476730}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB5E90D4-289E-4D2C-A7AD-756299BAD619}
+	EndGlobalSection
+EndGlobal

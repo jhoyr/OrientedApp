@@ -1,0 +1,163 @@
+﻿-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	Este módulo de aprendizagem aborda o motivo pelo qual testamos e fornece uma breve introdução às práticas recomendadas para testar o software.
+Vamos abordar diferentes tipos de teste, começando do nível mais fundamental: os testes de unidade. Também vamos mencionar várias perspectivas em relação ao teste.
+	
+	Se você quiser começar a testar imediatamente, confira Testar C# no Visual Studio. Você pode mergulhar diretamente na escrita e execução de testes. 
+Se você preferir aprender com uma interface de linha de comando, confira Testes de unidade do C# com MSTest e .NET (https://learn.microsoft.com/pt-br/dotnet/core/testing/unit-testing-with-mstest).
+	
+O QUE É TESTE?
+		Ao testar, escrevendo código ou executando testes manuais, você faz isso porque deseja garantir que seu software funcione conforme o esperado. Esta unidade se concentra na escrita de um
+	código que testa várias partes do código do aplicativo. O código de teste não será enviado com o código do aplicativo. Pense no código de teste como uma base que dá suporte ao processo de 
+	desenvolvimento de software durante todo o tempo de vida do programa.
+
+O PROCESSO DE TESTE
+		O teste envolve uma série de métodos que são executados no código do produto e que retornam um resultado aprovado ou com falha. O resultado é baseado em determinados critérios que são declarados.
+	Os resultados do teste aparecem em uma lista de marcas "x" vermelhas para representar testes com falha e marcas "✔" verdes para representar testes aprovados. Esses símbolos facilitam a avaliação de 
+	qual funcionalidade está funcionando ou não rapidamente.
+
+DEFINIÇÃO DO MÉTODO DE TESTE
+		Os testes são muito parecidos com os métodos regulares. Eles são organizados em classes de teste, têm assinaturas de método e aceitam parâmetros. Os testes referenciam e chamam o código do produto
+	(outra maneira de dizer o código que não é o do teste) e compara como eles se comporta em relação a um resultado esperado.
+
+		Uma diferença entre testes e o código do produto é que eles não são executados como parte da função normal do aplicativo. Portanto, em vez de usar F5 (ou o botão de execução verde grande na parte 
+	superior do seu ambiente de desenvolvimento) para executar como faria com seu aplicativo, você escolhe quais testes executar. Você pode fazer essa escolha por meio do Gerenciador de Testes do Visual 
+	Studio ou de outras ferramentas úteis do editor. Os testes estão lá para dar suporte, mas como eles não são fornecidos com o aplicativo, eles são executados de maneira independente, como se fossem 
+	aplicativos.
+
+COMO OS TESTES PODEM AJUDAR A EVITAR REGRESSÕES NA FUNCIONALIDADE?
+		Conforme implementamos um novo código, nem sempre nos ocorre quais cenários antigos podem ser afetados por novas alterações. Os testes facilitam para que todas as variações do comportamento antigo
+	sejam verificadas com uma simples execução de teste.
+
+POR QUE TESTAMOS?
+		O teste pode ser uma ferramenta poderosa para aprimorar a qualidade, a arquitetura e a integridade geral de uma base de código.
+
+VALIDAR QUALIDADE E ALTERAÇÕES DO CÓDIGO
+		Qualquer software bem-sucedido tende a crescer na funcionalidade e no comportamento. Às vezes, ele pode se desenvolver para além do que os criadores jamais imaginaram para dar suporte a mais ]
+	cenários e solicitações de clientes. À medida que a funcionalidade evolui, pode se tornar mais difícil que um único desenvolvedor se lembre de toda a funcionalidade que ele contém ou mantenha o controle
+	de como preservar essa funcionalidade.
+		Os testes não só mantém o controle dos diferentes recursos de um programa, mas também podem continuar verificando se a funcionalidade antiga não foi interrompida à medida que um novo código foi 
+	adicionado. Uma finalidade fundamental do teste é validar se as alterações no código não interrompem a funcionalidade existente e garantir que o código recém-adicionado continuará funcionando conforme o
+	esperado, mesmo com alterações futuras.
+
+		-> Adicionar novas funcionalidades (Codar!) -> Testar -> Pegar Bugs -> Corrigir Bugs -> Liberar -> Obter feedback -> Repeat.
+	
+		Os testes fornecem um conjunto final de centenas de milhares de verificações para garantir que os cenários anteriores ainda funcionem. Não há como uma pessoa ou até mesmo uma equipe se lembrar de 
+	todos esses cenários.
+
+EFEITOS NA ARQUITETURA
+		O teste também pode forçar alguns aprimoramentos na arquitetura. Você não poderá testar pequenas partes do seu código se ele estiver estruturado como um método gigante. Os testes podem ajudar você 
+	a dividir todas as funções do seu código em componentes mais modulares. Os testes podem reduzir a repetição, melhorar a estabilidade e até mesmo tornar seu código mais fácil de ler e navegar.
+
+COBERTURA DE CÓDIGO E INTEGRIDADE DE CÓDIGO
+		A cobertura de código é uma métrica que indica o quanto do código de produção de um aplicativo está coberto por testes. Ela indica se os testes realmente se aplicam a todo o código do produto, 
+	incluindo a lógica de ramificação e sobrecargas de método. A cobertura de código pode dar uma ideia básica de quais áreas precisam de mais testes. O Visual Studio até tem ferramentas que podem realçar
+	quais linhas estão cobertas por testes e quais linhas não estão, em seu editor.
+		O acompanhamento do percentual de cobertura de código ao longo do tempo poderá lhe dar uma ideia se o novo código que está sendo adicionado ao seu repositório tem testes. Se o novo código não estiver 
+	sendo testado, poderá ser uma indicação de que o repositório está acumulando dívidas técnicas. Embora a cobertura de código seja útil, ela não é uma indicação definitiva da integridade do repositório.
+	Ela só deve ser apenas um dos muitos fatores usados para avaliar a integridade de um repositório.
+		Diferentes mecanismos de cobertura de código podem calcular a cobertura de maneira diferente, e muitos programas podem parecer ter baixa cobertura, apesar de serem bem testados. Por exemplo, testar 
+	intensivamente determinados métodos que têm alto uso e ignorar outros métodos poderá, de fato, ser a coisa certa em um repositório específico. Não incentivamos que os repositórios tentem alcançar uma 
+	cobertura de código de 100%, pois esse não é um investimento viável para muitas empresas.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+A PIRÂMIDE DE TESTES
+		A pirâmide de testes foi popularizada nos últimos anos para explicar os diferentes tipos de teste e qual a predominância de cada um deles no software. Você pode encontrar muitas versões diferentes da 
+	pirâmide de testes e seu uso ainda é fonte de debate, mas tentaremos fornecer uma explicação simples e não controversa.
+
+		A base da pirâmide é composta de testes de unidade. Os testes de unidade normalmente são os testes mais fáceis de escrever, os mais fáceis de manter com as alterações de código e os mais rápidos de 
+	executar. Para muitos usuários, os testes de unidade são a primeira introdução ao teste. À medida que você sobe na pirâmide, os testes geralmente se tornam mais laboriosos para escrever, manter e executar.
+	Os testes da parte superior da pirâmide ainda fornecem valor alto, embora haja menos testes desses tipos. Por exemplo, os usuários geralmente têm mais testes de unidade do que testes de integração e mais 
+	testes de integração do que testes da interface do usuário.	
+
+TIPOS DE TESTE
+	- TESTES DE UNIDADE
+		Os testes de unidade são os tipos mais básicos de testes e compõem a base na pirâmide de testes. Eles devem ser específicos para um método ou a menor unidade de código testável. Um método pode ter 
+	muitos testes de unidade para abranger todas as suas funcionalidades, considerando uma variedade de parâmetros. Esses testes são os mais fáceis de escrever e também os mais fáceis de depurar, pois devem
+	ser a maneira mais simples de ensaiar a parte do código que eles testam.
+
+	- TESTES DE INTEGRAÇÃO
+		Os testes de integração são a próxima etapa dos testes de unidade na pirâmide de testes. Eles podem abranger vários métodos ou um conjunto mais amplo de comportamento do que os testes de unidade
+	Em nosso exemplo de endereço postal, um teste de integração pode testar o analisador de endereço postal e um método para calcular uma taxa de envio para esse local. Os dois combinados ajudam a sintetizar 
+	se várias partes do seu aplicativo estão funcionando em conjunto conforme o esperado.
+
+	- TESTES DE DESEMPENHO
+		Os testes de desempenho geralmente capturam o tempo que leva para executar determinadas partes do seu programa. Os testes de desempenho são uma ótima forma de capturar uma alteração de código que cause
+	lentidão em seu aplicativo. Você pode definir temporizadores no início dos testes que só são parados quando o teste é finalizado e relatar uma falha de teste se o temporizador exceder um determinado limite.
+
+	- TESTES DE CARGA
+		Os testes de carga podem ser semelhantes aos testes de desempenho, mas concentram-se mais em usar seu aplicativo em escala. Como o aplicativo se comportará com mil usuários usando-o? E com 10 mil 
+	usuários? Os testes de carga ajudam a determinar se seu aplicativo vai ficar lento ou gerar exceções quando estiver sob estresse.
+
+	- TESTES DE ACEITAÇÃO
+		Os testes de aceitação podem orientar em relação aos resultados desejados para os negócios. Se o cliente tiver lhe fornecido uma lista de critérios para o aplicativo, você poderá escrever testes de 
+	aceitação que só serão aprovados depois que todos esses critérios forem atendidos. Os testes de aceitação são outra forma de integrar as especificações ao seu código.
+
+	- TESTES DE INTERFACE DE USUÁRIO
+		Os testes de interface do usuário podem testar diretamente as interações da interface do usuário de um aplicativo. Os testes de interface do usuário devem imitar um usuário real clicando e interagindo
+	com seu aplicativo e testar se a resposta da interface do usuário está correta. Os testes de interface do usuário estão no topo da pirâmide de teste. Há muitas estruturas que podem automatizar interações 
+	da interface do usuário. 
+		Outro tipo de teste de interface do usuário é o teste manual, quando uma pessoa real usa seu aplicativo. Fazer com que um usuário teste seu aplicativo antes de ser lançado tem algumas vantagens e 
+	desvantagens. Pode ser um tipo de teste mais lento porque pode levar algum tempo para descrever como usar o aplicativo para um novo usuário e pode ser difícil repetir exatamente as mesmas etapas todas as 
+	vezes. A principal vantagem é a maior confiança de que o aplicativo está pronto para clientes humanos reais e nada foi esquecido porque o aplicativo foi usado não apenas pela automação.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+ESCOLAS DE PENSAMENTO DE TESTE
+	Há muitas diretrizes quando se trata de testes. Vamos falar de algumas das escolas mais comuns de pensamento que os desenvolvedores experientes geralmente recomendam.
+
+	- TDD (Desenvolvimento Orientado por Testes)
+		O TDD ou Desenvolvimento Orientado por Testes é um método de acomplamento direto de testes a cada parte do seu desenvolvimento diário. Os desenvolvedores que usam o TDD normalmente começam a desenvolver
+	escrevendo primeiro o teste que falha para, depois, escrever o código que faz o teste ser aprovado. Essa abordagem significa que é mais provável que o código do produto tenha uma alta cobertura de teste,
+	e os testes normalmente ocorrem primeiro.
+		Muitos desenvolvedores acham esse padrão útil para ajudá-los a priorizar uma boa arquitetura desde o início do desenvolvimento, mantendo-os focados em cada parte da funcionalidade que precisam implementar.
+	Essa escola de pensamento defende que os testes não são uma consequência do desenvolvimento, mas sim a força motriz.
+	
+		Há um tipo de TDD chamado Vermelho/Verde/Refatorar. É uma boa estratégia para se conhecer, pois ela organiza melhor esse processo. Veja como funciona:
+
+		1 - Escreva um teste "vermelho" para falhar;
+		2 - Adicione o código do produto necessário para garantir que ele passe no teste ou se torne "Verde";
+		3 - Depois, "refatore" (ou reescreva) o código, já que agora você tem a funcionalidade correta.
+		
+		Ciclo de um TDD (Test-Driven Development):
+			- Red: Escrever um teste que falha e em seguida, execute o teste acompanhando a falha
+			- Green: Desenvolva primeiro a solução mais simpls, depois, teste novamente, mas desta vez, é pra passar.
+			- Refactor: Refatore a funcionalidade e escreva-a por completo, eliminando redundância e acoplamentos, deixando o design do código mais bonito e legível.
+			Após isso, siga para a próxima funcionalidade.
+
+			"Primeiro faça, depois faça certo, depois faça melhor."
+
+	- BDD (Desenvolvimento Orientado por Comportamento)
+		O BDD ou Desenvolvimento Orientado por Comportamento é semelhante ao TDD, mas com maior foco no uso de testes de aceitação para orientar o desenvolvimento em alto nível. Você pode trabalhar com clientes,
+	parceiros de negócios ou gerentes de programa para definir um conjunto de testes que estabelecem os critérios necessárioss para o produto. Esses testes são descrições da funcionalidade de nível superior às 
+	dos testes de unidade, além de serem mais orientados aos negócios.
+		O BDD pode usar muitas ferramentas diferentes, mas todas elas tendem a se concentrar em documentar diferentes fases de expectativas para a funcionalidade. Os testes de BDD também provavelmete listam o 
+	escopo	do que é esperado.
+
+	- DRY (Don't Repeat Yourself)
+		O DRY ou Don't Repeat Yourself é outra prática no campo dos testes. O DRY afirma que você deve evitar repetir a lógica e as informações sempre que puder. Você pode evitar a repetição abstraindo as 
+	informações e mantendo uma "fonte de verdade", em vez de manter várias cópias da mesma lógica.
+	Por exemplo, digamos que você esteja escrevendo testes de unidade para construtores diferentes, mas está reutilizando muitos dos parâmetros para vários testes. Você pode escrever um método auxiliar de teste
+	que mantém todas as entradas de parâmetro em um só lugar, para que elas possam ser chamadas e modificadas com mais facilidade para todos os seus testes. Esse é um exemplo de redução de duplicação, para que
+	você não se repita.
+
+	ESCOLHA O QUE FUNCIONA MELHOR PARA VOCÊ
+		Por fim, você deve escolher as prátcas que funcionam melhor para você e que o tornam um programador mais eficaz. Elas podem ser diferente para todos, porque acreditamos e solucionamos problemas de 
+	maneiras diferentes. Não se preocupe se o TDD for muito intenso ou se ele não se adequar ao seu projeto específico. Talvez a equipe com a qual você está trabalhando tenha diretrizes melhores sobre as práticas
+	que funcionam mais adequadamente para sua base de código. Pesquise e encontre algo que seja bom para você!
+	
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CRIAR UM TESTE
+	OS TRÊS "As"
+	Os três "As" nos comentários fornecem diretrizes básicas para sua estrutura de teste:
+		- Em 'Arranjar', você declara todas as variáveis de que o teste possa precisar. Nesse exemplo, devemos declarar um objeto calculator para chamar o método Add.
+		- Em 'Agir', você chama o código que deseja testar. Nessa etapa, você pode inserir parâmetros e executar o código.
+		- Em 'Afirmar', você verifica se o resultado da ação é o esperado. Você pode adicionar várias declarações a qualquer teste. Se uma declaração falhar, o teste falhará.
+
+INSTRUÇÕES ASSERT
+	
