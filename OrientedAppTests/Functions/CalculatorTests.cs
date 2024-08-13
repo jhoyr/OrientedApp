@@ -101,8 +101,8 @@ public class CalculatorTests
         // Same asserts as what is commented out above, but using Fluent Assertions
         actual.Should().Be(2).And.NotBe(1);
     }
-    /*TESTES DIRECIONADOS A DADOS*/
 
+    /*TESTES DIRECIONADOS A DADOS*/
     [DataTestMethod]
     [DataRow(1, 1, 2)]
     [DataRow(2, 2, 4)]
@@ -114,4 +114,5 @@ public class CalculatorTests
         var actual = calculator.Add(x, y);
         Assert.AreEqual(expected, actual);
     }
+    
 }
